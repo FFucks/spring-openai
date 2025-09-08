@@ -6,7 +6,7 @@ spring:
     name: spring-ai-demo
   autoconfigure:
     exclude:
-      - dev.langchain4j.openai.spring.AutoConfig   # shutdown o autoconfig of LC4J
+      - dev.langchain4j.openai.spring.AutoConfig   # shutdown the autoconfig of langchain4j, same bean called openAiChatModel
   ai:
     openai:
       api-key: ${OPENAI_API_KEY}
