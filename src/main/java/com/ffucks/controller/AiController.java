@@ -1,6 +1,8 @@
 package com.ffucks.controller;
 
 import com.ffucks.dto.ReviewRequest;
+import dev.langchain4j.model.chat.ChatModel;
+import dev.langchain4j.model.ollama.OllamaChatModel;
 import jakarta.validation.Valid;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.model.ChatResponse;
@@ -23,10 +25,17 @@ public class AiController {
 
     private final ChatClient chat;
     private final ImageModel imageModel;
+    private final OllamaChatModel chatModelLang;
 
-    public AiController(ChatClient.Builder chatClientBuilder, ImageModel imageModel) {
+    public AiController(ChatClient.Builder chatClientBuilder, ImageModel imageModel, ChatModel chatModel, OllamaChatModel chatModelLang) {
         this.chat = chatClientBuilder.build();
         this.imageModel = imageModel;
+        this.chatModelLang = chatModelLang;
+    }
+
+    @GetMapping("/message")
+    public String getMessage(@RequestParam String message) {
+        return chatModelLang.chat(message);
     }
 
     @GetMapping("/chat")

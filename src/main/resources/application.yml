@@ -4,9 +4,12 @@ server:
 spring:
   application:
     name: spring-ai-demo
+  autoconfigure:
+    exclude:
+      - dev.langchain4j.openai.spring.AutoConfig   # shutdown o autoconfig of LC4J
   ai:
     openai:
-      api-key: ${OPEN_API_KEY}
+      api-key: ${OPENAI_API_KEY}
       chat:
         options:
           model: gpt-4o-mini
@@ -20,7 +23,6 @@ spring:
       api-key: ${STABILITY_API_KEY}
       image:
         options:
-          # engine/model.
           model: stable-diffusion-xl-1024-v1-0
           width: 768
           height: 768
