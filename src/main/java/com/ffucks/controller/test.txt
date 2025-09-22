@@ -1,0 +1,86 @@
+🔑 OIDC (OpenID Connect)
+
+É uma camada de identidade construída sobre OAuth 2.0.
+Permite que usuários façam login em diferentes sistemas usando um provedor de identidade (ex: Google, Microsoft, Keycloak, Okta).
+Muito usado em aplicações modernas (cloud, microsserviços, APIs).
+Exemplo: clicar em "Login com Google" em um site está usando OIDC.
+
+🛡️ SAML (Security Assertion Markup Language)
+É um padrão baseado em XML para troca de dados de autenticação e autorização.
+Muito utilizado em Single Sign-On (SSO) em ambientes corporativos.
+Exemplo: acessar vários aplicativos internos de uma empresa (como ERP, intranet e e-mail) após se autenticar uma única vez no AD/IdP.
+
+📂 LDAP (Lightweight Directory Access Protocol)
+É um protocolo para acessar diretórios de usuários e permissões.
+Usado frequentemente para consultar servidores como Active Directory ou OpenLDAP.
+Muito comum em sistemas on-premises (rede corporativa, controle de acesso, permissões de arquivos, e-mail interno).
+
+
+🔐 IAM (Identity and Access Management)
+
+Serviço da AWS para gerenciamento de identidade e permissões.
+Permite criar usuários, grupos e roles, e controlar o que cada um pode ou não fazer dentro da AWS (ex: acessar um bucket S3, invocar uma Lambda, criar instâncias EC2).
+Exemplo: criar uma IAM Role que dá permissão apenas de leitura em S3 para uma aplicação.
+
+🌐 API Gateway
+
+Serviço da AWS que funciona como porta de entrada para APIs.
+Faz o gerenciamento de requisições HTTP/REST ou WebSocket, autenticação, rate limiting, caching, logging, etc.
+Normalmente usado em conjunto com Lambda (backend serverless).
+
+Exemplo: um endpoint /users que recebe requisições REST e dispara uma Lambda para processar.
+
+⚡ Lambda
+Serviço de computação serverless da AWS.
+Você sobe funções (em várias linguagens: Java, Python, Node.js, Go, etc.), e a AWS executa sob demanda quando acionadas (por eventos do API Gateway, S3, DynamoDB, cron, etc.).
+Vantagem: não precisa de servidor fixo, paga apenas pelo tempo de execução.
+Exemplo: ao subir um arquivo em S3, uma Lambda é acionada automaticamente para processar esse arquivo.
+
+EC2, ou Amazon Elastic Compute Cloud, é um serviço da Amazon Web Services (AWS)
+que permite alugar servidores virtuais (chamados "instâncias")
+na nuvem da Amazon para hospedar aplicações e sistemas de software.
+O serviço oferece capacidade de computação escalável,
+permitindo que os utilizadores ajustem os recursos de acordo com as suas necessidades,
+pagando apenas pelo tempo que usam, daí o nome
+
+O AWS EKS (Elastic Kubernetes Service) é o serviço gerenciado da Amazon para rodar clusters Kubernetes na nuvem AWS.
+Basicamente, ele facilita a criação,
+configuração e operação de clusters Kubernetes sem que você precise gerenciar manualmente o plano de controle (control plane)
+e etcd — a AWS cuida dessa parte crítica e de alta disponibilidade.
+
+O que é o ECS?
+
+O AMAZON ECS é um serviço de orquestração de containers que permite rodar, escalar e gerenciar aplicações Docker diretamente na AWS, sem precisar de Kubernetes.
+Ele foi desenhado pela própria AWS para ser mais simples e integrado ao ecossistema deles.
+
+O AMAZON KEYSPACES é um banco de dados NoSQL totalmente gerenciado, compatível com Apache Cassandra.
+Ele foi criado para quem já usa Cassandra (on-premises ou em outra nuvem) mas quer tirar proveito da infraestrutura gerenciada da AWS,
+sem se preocupar em instalar, manter ou escalar clusters Cassandra manualmente.
+
+O AMAZON RDS (Relational Database Service) for PostgreSQL é um serviço gerenciado de banco de dados relacional baseado no PostgreSQL open source.
+Com ele, você usa todo o poder do PostgreSQL, mas sem precisar gerenciar manualmente instalação, upgrades, backups, patches, replicação e alta disponibilidade.
+
+📊 OLTP (Online Transaction Processing)
+
+Refere-se a processamento de transações online.
+São sistemas focados em gravar, consultar e atualizar dados rapidamente, com muitas operações curtas e simultâneas.
+Características típicas:
+Suporte a muitos usuários concorrentes.
+Uso intenso de índices e joins para consultas rápidas.
+Garantia de ACID (Atomicidade, Consistência, Isolamento, Durabilidade).
+
+📡 AWS MSK (Managed Streaming for Apache Kafka)
+
+Serviço gerenciado da AWS que roda o Apache Kafka.
+Kafka é uma plataforma de streaming distribuído, voltada para alta vazão e baixa latência em processamento de eventos.
+Principais características:
+Trabalha com tópicos particionados e consumidores em grupo.
+Bom para event streaming (fluxos contínuos de dados).
+Retém mensagens por tempo configurado (não apenas até o consumo).
+
+📬 AWS SQS (Simple Queue Service)
+Fila de mensagens simples, confiável e totalmente gerenciada pela AWS.
+Suporta Standard Queues (alta vazão, entrega pelo menos uma vez) e FIFO Queues (ordem garantida, exatamente uma vez).
+Mensagem fica na fila até ser consumida e apagada.
+Não é feito para streaming contínuo, mas sim troca assíncrona de mensagens entre sistemas.
+Extremamente fácil de usar (não precisa administrar brokers/partições).
